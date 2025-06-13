@@ -1,0 +1,22 @@
+In this project, we're going to implement a new model architecture that can be served using Modular's MAX.
+
+The architecture we will build is the GPT2LMHeadModel behind the Hugging Face model at https://huggingface.co/distilbert/distilgpt2
+
+To do this, we'll follow these steps:
+
+- Set up the initial custom model scaffolding by following the tutorial in serve-custom-model-architectures.mdx
+- Rename the basic scaffolding to gpt2_lmhead_model and make it register for the GPT2LMHeadModel architecture
+- Implement the full GPT2LMHeadModel so that it can be used with the weights at https://huggingface.co/distilbert/distilgpt2
+  - For this, make sure to reference the below-listed reference of existing architectures as well as the below-linked API reference
+  - Test using
+    pixi run max serve --model-path distilbert/distilgpt2 --custom-architectures gpt2_lmhead_model
+  - Fix issues until the model is served and you see "Server ready on http://0.0.0.0:8000 (Press CTRL+C to quit)" at the command line.
+
+Build a CLAUDE.md memory file as you work, and keep that up to date with what you've learned as the correct locations for examples and APIs.
+
+Define a README.md that describes the model architecture and how to use it.
+
+Primary references to consult:
+
+- MAX Python APIs: https://docs.modular.com/llms-python.txt
+- Examples of existing LLM architectures that have been built using the MAX Python APIs: ../modular/max/pipelines/architectures
