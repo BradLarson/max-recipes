@@ -1,0 +1,15 @@
+[project]
+authors = ["Modular <hello@modular.com>"]
+channels = ["conda-forge", "https://conda.modular.com/max-nightly/"]
+description = "Examples of running models using the C API"
+name = "C API"
+platforms = ["osx-arm64", "linux-aarch64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+graph = "python graph.py"
+c_api = "clang -I.pixi/envs/default/include -L.pixi/envs/default/lib -lmax -lmodular-framework-common -Wl,-rpath,.pixi/envs/default/lib -o c_api main.c && c_api"
+
+[dependencies]
+python = ">=3.9,<3.14"
+max = "==25.5.0.dev2025070905"
